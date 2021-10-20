@@ -1,29 +1,24 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, useColorScheme } from 'react-native';
 
-import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
+import AppNavigation from './navigation';
+import { StyleSheet } from 'react-native';
 
 const App = () => {
-    const isDarkMode = useColorScheme() === 'dark';
-
-    const backgroundStyle = {
-        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
-
     return (
-        <SafeAreaView style={backgroundStyle}>
-            <GestureHandlerRootView>
-                <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-                <NavigationContainer>
-                    <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
-                        <Header />
-                    </ScrollView>
-                </NavigationContainer>
+        <SafeAreaProvider>
+            <GestureHandlerRootView style={styles.root}>
+                <AppNavigation />
             </GestureHandlerRootView>
-        </SafeAreaView>
+        </SafeAreaProvider>
     );
 };
+
+const styles = StyleSheet.create({
+    root: {
+        flex: 1,
+    },
+});
 
 export default App;

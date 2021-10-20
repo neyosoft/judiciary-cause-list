@@ -1,7 +1,8 @@
-import React, { forwardRef } from "react";
-import { TextInput, StyleSheet } from "react-native";
-import { RFPercentage } from "react-native-responsive-fontsize";
-import theme from "../theme";
+import React, { forwardRef } from 'react';
+import { TextInput, StyleSheet } from 'react-native';
+import { RFPercentage } from 'react-native-responsive-fontsize';
+
+import theme from '../../theme';
 
 export const TextField = forwardRef(({ style, error, ...rest }, ref) => {
     const inputStyles = [styles.input, style];
@@ -25,14 +26,14 @@ export const TextField = forwardRef(({ style, error, ...rest }, ref) => {
 const styles = StyleSheet.create({
     input: {
         height: RFPercentage(7),
-        backgroundColor: "#F2F2F2",
+        backgroundColor: '#F2F2F2',
         fontSize: RFPercentage(2.1),
         paddingLeft: RFPercentage(2),
-        fontFamily: "Baloo2-Regular",
+        fontFamily: 'Baloo2-Regular',
         borderRadius: theme.radius.input,
     },
     error: {
         borderWidth: 1,
-        borderColor: "#FF7878",
+        borderColor: '#FF7878',
     },
 });
